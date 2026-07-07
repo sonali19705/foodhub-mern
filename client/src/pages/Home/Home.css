@@ -1,0 +1,35 @@
+.home {
+    width: 100%;
+}
+
+.categories {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.categories h2 {
+    margin-bottom: 30px;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.foods {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.foods h2 {
+    margin-bottom: 30px;
+}
+
+.food-list {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}

@@ -1,5 +1,29 @@
-nav {
-    background-color: #75ac2d;
-    color: #ffffff;
-    padding: 15px;
+.navbar {
+    background: #ff5722;
+    color: white;
+    padding: 25px 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+.nav-links a.active {
+    color: yellow;
+    border-bottom: 2px solid yellow;
+}
+
+.nav-links a:hover {
+    color: #ffe082;
 }
