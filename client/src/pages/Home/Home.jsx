@@ -1,9 +1,25 @@
+import api from "../../services/api";
+import { useEffect, useState } from "react";
 import "./Home.css";
 import Hero from "../../components/Hero/Hero";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import FoodCard from "../../components/FoodCard/FoodCard";
 
 function Home() {
+    const [foods, setFoods] = useState([]);
+
+    useEffect(() => {
+        const fetchFoods = async () => {
+            try {
+                const response = await api.get("/foods");
+                setFoods(response.data);
+            } catch (error) {
+                console.error("Error fetching foods:", error);
+            }
+        };
+
+        fetchFoods();
+    }, []);
 
     const categories = [
         {
@@ -30,30 +46,6 @@ function Home() {
             name: "Desserts",
             price: 149,
         },
-    ];
-
-    const foods = [
-        {
-            id: 1,
-            image: "https://placehold.co/250x180",
-            name: "Margherita Pizza",
-            price: 299,
-            description: "Classic cheese pizza with fresh basil."
-        },
-        {
-            id: 2,
-            image: "https://placehold.co/250x180",
-            name: "Veg Burger",
-            price: 199,
-            description: "Loaded with fresh vegetables and cheese."
-        },
-        {
-            id: 3,
-            image: "https://placehold.co/250x180",
-            name: "Cold Coffee",
-            price: 149,
-            description: "Chilled coffee with whipped cream."
-        }
     ];
 
     return (
@@ -88,7 +80,7 @@ function Home() {
 
                     {foods.map((food) => (
                         <FoodCard
-                            key={food.id}
+                            key={food._id}
                             image={food.image}
                             name={food.name}
                             price={food.price}

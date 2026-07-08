@@ -1,11 +1,9 @@
+const cors = require("cors");
 const express = require("express");
 const foodRoutes = require("./routes/foodRoutes");
 
 const app = express();
-
-app.get("/", (req, res) => {
-    res.send("Welcome to FoodHub API 🚀");
-});
+app.use(cors());
 
 // Middleware
 app.use(express.json());
