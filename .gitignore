@@ -1,4 +1,20 @@
-node_modules/
-.env
-dist/
+# Server
+server/node_modules/
+server/.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Editor Settings (Optional)
+.vscode/
+
 build/
+
+# Microsoft Word temporary files
+~$*
+*.tmp
