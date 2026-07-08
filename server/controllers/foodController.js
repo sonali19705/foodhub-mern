@@ -1,95 +1,104 @@
-let foods = [
-    {
-        id: 1,
-        name: "Pizza",
-        price: 299,
-    },
-    {
-        id: 2,
-        name: "Burger",
-        price: 199,
-    },
-    {
-        id: 3,
-        name: "Pasta",
-        price: 249,
-    },
-];
-const getAllFoods = (req, res) => {
-    res.json(foods);
+const Food = require("../models/Food");
+const getAllFoods = async (req, res) => {
+    try {
+        const foods = await Food.find();
+
+        res.status(200).json(foods);
+
+    } catch (error) {
+
+        res.status(500).json({
+            message: error.message,
+        });
+
+    }
 };
-const getFoodById = (req, res) => {
+const getFoodById = async (req, res) => {
+    try {
+        const food = await Food.findById(req.params.id);
 
-    const id = Number(req.params.id);
+        if (!food) {
+            return res.status(404).json({
+                message: "Food not found",
+            });
+        }
 
-    const food = foods.find(food => food.id === id);
+        res.status(200).json(food);
 
-    if (!food) {
-        return res.status(404).json({
-            message: "Food not found",
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
         });
     }
-
-    res.json(food);
-
 };
 
-const createFood = (req, res) => {
+const createFood = async (req, res) => {
+    try {
+        const food = await Food.create(req.body);
 
-    const { name, price } = req.body;
+        res.status(201).json(food);
 
-    const newFood = {
-        id: foods.length + 1,
-        name,
-        price,
-    };
+    } catch (error) {
 
-    foods.push(newFood);
-
-    res.status(201).json(newFood);
-
-};
-
-const updateFood = (req, res) => {
-
-    const id = Number(req.params.id);
-
-    const food = foods.find(food => food.id === id);
-
-    if (!food) {
-        return res.status(404).json({
-            message: "Food not found",
+        res.status(500).json({
+            message: error.message,
         });
+
     }
-
-    const { name, price } = req.body;
-
-    food.name = name;
-    food.price = price;
-
-    res.json(food);
-
 };
-const deleteFood = (req, res) => {
 
-    const id = Number(req.params.id);
+const updateFood = async (req, res) => {
+    try {
 
-    const index = foods.findIndex(food => food.id === id);
+        const food = await Food.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            {
+                new: true,
+                runValidators: true,
+            }
+        );
 
-    if (index === -1) {
-        return res.status(404).json({
-            message: "Food not found",
+        if (!food) {
+            return res.status(404).json({
+                message: "Food not found",
+            });
+        }
+
+        res.status(200).json(food);
+
+    } catch (error) {
+
+        res.status(500).json({
+            message: error.message,
         });
+
     }
-
-    foods.splice(index, 1);
-
-    res.json({
-        message: "Food deleted successfully",
-    });
-
 };
 
+const deleteFood = async (req, res) => {
+    try {
+
+        const food = await Food.findByIdAndDelete(req.params.id);
+
+        if (!food) {
+            return res.status(404).json({
+                message: "Food not found",
+            });
+        }
+
+        res.status(200).json({
+            message: "Food deleted successfully",
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            message: error.message,
+        });
+
+    }
+};
 
 module.exports = {
     getAllFoods,
@@ -98,3 +107,5 @@ module.exports = {
     updateFood,
     deleteFood,
 };
+
+   
