@@ -1,7 +1,15 @@
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    navigate("/login");
+  };
   return (
     <nav className="navbar">
       <h2>🍕 FoodHub</h2>
@@ -23,13 +31,23 @@ function Navbar() {
           <NavLink to="/orders">Orders</NavLink>
         </li>
 
-        <li>
-          <NavLink to="/login">Login</NavLink>
-        </li>
+        {token ? (
+          <li>
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </li>
+        ) : (
+          <>
+            <li>
+              <NavLink to="/login">Login</NavLink>
+            </li>
 
-        <li>
-          <NavLink to="/register">Register</NavLink>
-        </li>
+            <li>
+              <NavLink to="/register">Register</NavLink>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );
