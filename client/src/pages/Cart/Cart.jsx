@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import "./Cart.css";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
 
   const [cart, setCart] = useState([]);
-
+  const navigate = useNavigate();
   const fetchCart = async () => {
     const token = localStorage.getItem("token");
 
@@ -179,7 +180,10 @@ function Cart() {
                 Clear Cart
               </button>
 
-              <button className="checkout-btn">
+              <button
+                className="checkout-btn"
+                onClick={() => navigate("/address")}
+              >
                 Proceed to Checkout
               </button>
 

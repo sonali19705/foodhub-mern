@@ -10,6 +10,7 @@ import Menu from "./pages/Menu/Menu";
 import Cart from "./pages/Cart/Cart";
 import Orders from "./pages/Orders/Orders";
 import Admin from "./pages/Admin/Admin";
+import Address from "./pages/Address/Address";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/address" element={<Address />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
