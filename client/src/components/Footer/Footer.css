@@ -1,7 +1,77 @@
+/* ===========================
+   Footer
+=========================== */
+
 .footer {
-    background-color: #222;
-    color: white;
+
+    margin-top: auto;
+
+    background: #1b1b1b;
+
+    border-top: 1px solid var(--border);
+
+    padding: 22px 20px;
+
     text-align: center;
-    padding: 20px;
-    margin-top: 50px;
+
+}
+
+.footer p {
+
+    color: var(--text-light);
+
+    font-size: 15px;
+
+    letter-spacing: .5px;
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:992px){
+
+    .footer{
+
+        padding:20px 15px;
+    }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:768px){
+
+    .footer{
+
+        padding:18px 15px;
+    }
+
+    .footer p{
+
+        font-size:14px;
+
+        line-height:1.6;
+    }
+
+}
+
+/* ===========================
+   Small Mobile
+=========================== */
+
+@media (max-width:480px){
+
+    .footer{
+
+        padding:16px 10px;
+    }
+
+    .footer p{
+
+        font-size:13px;
+    }
+
 }

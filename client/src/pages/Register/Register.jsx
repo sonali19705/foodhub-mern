@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import api from "../../services/api";
 import "./Register.css";
@@ -183,6 +183,11 @@ function Register() {
         <button type="submit">
           Register
         </button>
+
+        <p className="login-link">
+          Already have an account?{" "}
+          <Link to="/Login">Login</Link>
+        </p>
 
       </form>
 

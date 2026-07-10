@@ -1,48 +1,102 @@
-.food-card{
-    width:250px;
-    border:1px solid #ddd;
-    border-radius:12px;
-    overflow:hidden;
-    padding:15px;
-    transition:0.3s;
+.food-card {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 15px;
+    transition: 0.3s;
+    background: var(--card);
 }
 
-.food-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-.food-card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    border-radius:10px;
+.food-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.food-card h3{
-    margin:15px 0 10px;
+.food-card h3 {
+    margin: 15px 0 10px;
 }
 
-.food-card p{
-    color:#666;
-    font-size:14px;
+.food-card p {
+    color: var(--text-light);
+    font-size: 14px;
+    min-height: 40px;
 }
 
-.food-card h4{
-    margin:15px 0;
-    color:#ff5722;
+.food-card h4 {
+    margin: 15px 0;
+    color: var(--primary);
 }
 
-.food-card button{
-    width:100%;
-    padding:10px;
-    border:none;
-    background:#ff5722;
-    color:white;
-    border-radius:8px;
-    cursor:pointer;
+.food-card button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.food-card button:hover{
-    background:#e64a19;
+.food-card button:hover {
+    background: var(--primary-hover);
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 768px) {
+
+    .food-card {
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .food-card img {
+        height: 220px;
+    }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 480px) {
+
+    .food-card {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .food-card img {
+        height: 180px;
+    }
+
+    .food-card h3 {
+        font-size: 20px;
+    }
+
+    .food-card p {
+        font-size: 13px;
+    }
+
+    .food-card h4 {
+        font-size: 20px;
+    }
+
+    .food-card button {
+        padding: 12px;
+    }
+
 }

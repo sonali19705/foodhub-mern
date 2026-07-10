@@ -1,35 +1,96 @@
-.home {
-    width: 100%;
+.home{
+
+width:100%;
+
 }
 
-.categories {
-    padding: 60px 20px;
-    text-align: center;
+/* Sections */
+
+.categories,
+.foods{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:60px 20px;
+
 }
 
-.categories h2 {
-    margin-bottom: 30px;
+.categories h2,
+.foods h2{
+
+text-align:center;
+
+margin-bottom:35px;
+
 }
 
-.category-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+/* Category Grid */
+
+.category-list{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+gap:20px;
+
 }
 
-.foods {
-    padding: 60px 20px;
-    text-align: center;
+/* Food Grid */
+
+.food-list{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:30px;
+
 }
 
-.foods h2 {
-    margin-bottom: 30px;
+/* ---------- Tablet ---------- */
+
+@media (max-width: 768px) {
+
+    .categories,
+    .foods {
+        padding: 50px 15px;
+    }
+
+    /* 2 categories in one row */
+    .category-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    /* Food items one below another */
+    .food-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
 }
 
-.food-list {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
+/* ---------- Small Mobile ---------- */
+
+@media (max-width: 480px) {
+
+    .categories,
+    .foods {
+        padding: 40px 12px;
+    }
+
+    /* Still 2 categories per row */
+    .category-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    /* Single food card */
+    .food-list {
+        grid-template-columns: 1fr;
+    }
+
 }

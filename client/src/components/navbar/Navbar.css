@@ -1,43 +1,184 @@
+/* ===========================
+   Navbar
+=========================== */
+
 .navbar {
-    background: #ff5722;
+    background: var(--primary);
+
     color: white;
-    padding: 25px 50px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    padding: 35px 6%;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
 }
+
+.navbar h2 {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ===========================
+   Navigation
+=========================== */
 
 .nav-links {
     display: flex;
+    align-items: center;
+    gap: 24px;
+
     list-style: none;
-    gap: 25px;
+}
+
+.nav-links li {
+    list-style: none;
 }
 
 .nav-links a {
-    text-decoration: none;
     color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
     font-weight: 500;
-}
-.nav-links a.active {
-    color: yellow;
-    border-bottom: 2px solid yellow;
+
+    transition: var(--transition);
+
+    padding-bottom: 4px;
 }
 
 .nav-links a:hover {
     color: #ffe082;
 }
 
+.nav-links a.active {
+    color: yellow;
+    border-bottom: 2px solid yellow;
+}
+
+/* ===========================
+   Logout Button
+=========================== */
+
 .logout-btn {
-    background: #ff5722;
-    border: none;
-    font-size: 17px;
-    cursor: pointer;
+
+    background: transparent;
+
     color: white;
+
+    border: none;
+
+    font-size: 16px;
     font-weight: 500;
-    transition: 0.3s;
+
+    cursor: pointer;
+
+    transition: var(--transition);
 }
 
 .logout-btn:hover {
     color: yellow;
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 992px) {
+
+    .navbar {
+
+        padding: 16px 5%;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 18px;
+    }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 18px;
+
+        padding: 16px;
+    }
+
+    .navbar h2 {
+
+        font-size: 1.3rem;
+    }
+
+    .nav-links {
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .nav-links a,
+    .logout-btn {
+
+        font-size: 15px;
+    }
+
+}
+
+/* ===========================
+   Small Mobile
+=========================== */
+
+@media (max-width: 480px) {
+
+    .navbar {
+
+        padding: 15px;
+    }
+
+    .navbar h2 {
+
+        font-size: 1.4rem;
+    }
+
+    .nav-links {
+
+        gap: 12px;
+    }
+
+    .nav-links a,
+    .logout-btn {
+
+        font-size: 14px;
+    }
+
 }

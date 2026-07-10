@@ -12,7 +12,7 @@ function Navbar() {
   };
   return (
     <nav className="navbar">
-      <h2>🍕 FoodHub</h2>
+      <h2 onClick={() => navigate("/")}>🍕 FoodHub</h2>
 
       <ul className="nav-links">
         <li>

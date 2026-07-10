@@ -10,7 +10,12 @@ function Hero() {
         Fresh meals prepared with love and delivered in minutes.
       </p>
 
-      <button>Order Now</button>
+      <button onClick={() => window.scrollTo({
+        top: 700,
+        behavior: "smooth",
+      })}>
+        Order Now
+      </button>
 
     </section>
   );
