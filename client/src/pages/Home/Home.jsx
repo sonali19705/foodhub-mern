@@ -81,14 +81,11 @@ function Home() {
                     {foods.map((food) => (
                         <FoodCard
                             key={food._id}
-                            image={food.image}
-                            name={food.name}
-                            price={food.price}
-                            description={food.description}
+                            food={food}
                         />
                     ))}
 
-                </div>
+                </div>  
 
             </section>
 
