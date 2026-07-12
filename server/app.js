@@ -4,6 +4,7 @@ const foodRoutes = require("./routes/foodRoutes");
 const authRoutes = require("./routes/authRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const addressRoutes = require("./routes/addressRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 
 const app = express();
 app.use(cors());
@@ -15,4 +16,5 @@ app.use("/api/foods", foodRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/address", addressRoutes);
+app.use("/api/orders", orderRoutes);
 module.exports = app;

@@ -11,6 +11,7 @@ import Cart from "./pages/Cart/Cart";
 import Orders from "./pages/Orders/Orders";
 import Admin from "./pages/Admin/Admin";
 import Address from "./pages/Address/Address";
+import Checkout from "./pages/Checkout/Checkout";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         <Route path="/orders" element={<Orders />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/address" element={<Address />} />
+        <Route path="/checkout" element={<Checkout />} />
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
 
