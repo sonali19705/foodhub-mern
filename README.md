@@ -34,6 +34,12 @@ FoodHub is a full-stack food ordering web application built using the **MERN Sta
 - Delete Address
 - Default Address Selection
 
+### 🧾 Checkout Module
+- Order Summary
+- Address Selection
+- Price Breakdown
+- Cash on Delivery
+
 ### 🎨 Frontend
 - Responsive User Interface
 - React Component-Based Architecture
@@ -44,13 +50,11 @@ FoodHub is a full-stack food ordering web application built using the **MERN Sta
 
 ## 🚀 Upcoming Features
 
-- Checkout Module
-- Order Placement
-- Order History
-- Payment Module
 - Admin Dashboard
 - Food Management (Admin)
 - Order Management (Admin)
+- Payment Gateway Integration
+- Delivery Partner Module
 
 ---
 
@@ -190,6 +194,14 @@ Manage Address
 | PUT | `/api/address/:id` |
 | DELETE | `/api/address/:id` |
 
+### Orders
+
+| Method | Endpoint |
+|---------|----------|
+| POST | `/api/orders` |
+| GET | `/api/orders` |
+| GET | `/api/orders/:id` |
+
 ---
 
 ## ⚙️ Installation
@@ -248,7 +260,7 @@ npm run dev
 
 ## 📸 Screenshots
 
-> Screenshots will be added after completing the Checkout and Admin modules.
+> Screenshots will be added soon.
 
 - Home
 - Login
