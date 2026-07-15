@@ -1,0 +1,265 @@
+.food-management{
+    min-height:100vh;
+    background:#111;
+    color:white;
+    padding:40px 8%;
+}
+
+.food-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.food-header h1{
+    margin:0;
+}
+
+.add-food-btn{
+    background:#ff5722;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s;
+}
+
+.add-food-btn:hover{
+    background:#e64a19;
+}
+
+.food-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.food-card{
+    background:#1b1b1b;
+    border:1px solid #333;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.food-card:hover{
+    border-color:#ff5722;
+    transform:translateY(-5px);
+}
+
+.food-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.food-card h3{
+    margin:18px 18px 10px;
+}
+
+.food-card p{
+    margin:0 18px;
+    color:#bbb;
+    min-height:45px;
+}
+
+.food-card h4{
+    margin:15px 18px;
+    color:#ff5722;
+}
+
+.food-actions{
+    display:flex;
+    gap:10px;
+    padding:18px;
+}
+
+.edit-btn,
+.delete-btn{
+    flex:1;
+    border:none;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+}
+
+.edit-btn{
+    background:#ff9800;
+}
+
+.edit-btn:hover{
+    background:#f57c00;
+}
+
+.delete-btn{
+    background:#d32f2f;
+}
+
+.delete-btn:hover{
+    background:#b71c1c;
+}
+
+@media(max-width:768px){
+
+    .food-management{
+        padding:25px 5%;
+    }
+
+    .food-header{
+        flex-direction:column;
+        gap:20px;
+        align-items:stretch;
+    }
+
+    .add-food-btn{
+        width:100%;
+    }
+
+}
+/* ---------- Modal ---------- */
+
+.modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:1000;
+}
+
+.food-modal{
+
+    width:450px;
+
+    max-width:95%;
+
+    background:#1b1b1b;
+
+    border:1px solid #333;
+
+    border-radius:15px;
+
+    padding:30px;
+}
+
+.food-modal h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    color:white;
+}
+
+.food-modal input{
+
+    width:100%;
+
+    height:48px;
+
+    margin-bottom:16px;
+
+    padding:0 15px;
+
+    border:1px solid #444;
+
+    border-radius:8px;
+
+    background:#2a2a2a;
+
+    color:white;
+
+    box-sizing:border-box;
+}
+
+.food-modal input:focus{
+
+    outline:none;
+
+    border-color:#ff5722;
+}
+
+.modal-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:20px;
+}
+
+.modal-buttons button{
+
+    flex:1;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:15px;
+}
+
+.modal-buttons button:first-child{
+
+    background:#ff5722;
+}
+
+.modal-buttons button:first-child:hover{
+
+    background:#e64a19;
+}
+
+.cancel-btn{
+
+    background:#555;
+}
+
+.cancel-btn:hover{
+
+    background:#666;
+}
+.food-modal select{
+
+    width:100%;
+
+    height:48px;
+
+    margin-bottom:16px;
+
+    padding:0 15px;
+
+    border:1px solid #444;
+
+    border-radius:8px;
+
+    background:#2a2a2a;
+
+    color:white;
+
+    box-sizing:border-box;
+
+    outline:none;
+}
+
+.food-modal select:focus{
+
+    border-color:#ff5722;
+}

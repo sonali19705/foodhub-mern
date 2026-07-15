@@ -4,6 +4,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 function Navbar() {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const isAdmin = user?.role === "admin";
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -12,45 +17,90 @@ function Navbar() {
   };
   return (
     <nav className="navbar">
-      <h2 onClick={() => navigate("/")}>🍕 FoodHub</h2>
+      <h2 onClick={() => {
+        if (isAdmin) {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
+      }}>🍕 FoodHub</h2>
 
       <ul className="nav-links">
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
 
-        {/*<li>
-          <NavLink to="/menu">Menu</NavLink>
-        </li>*/}
+        {isAdmin ? (
+          <>
+            <li>
+              <NavLink to="/admin">
+                Dashboard
+              </NavLink>
+            </li>
 
-        <li>
-          <NavLink to="/cart">Cart</NavLink>
-        </li>
+            <li>
+              <NavLink to="/admin/foods">
+                Foods
+              </NavLink>
+            </li>
 
-        <li>
-          <NavLink to="/orders">Orders</NavLink>
-        </li>
+            <li>
+              <NavLink to="/admin/orders">
+                Orders
+              </NavLink>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+
+            {/* Uncomment when Menu module is completed */}
+            {/* 
+          <li>
+            <NavLink to="/menu">Menu</NavLink>
+          </li>
+          */}
+
+            <li>
+              <NavLink to="/cart">
+                Cart
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/orders">
+                Orders
+              </NavLink>
+            </li>
+          </>
+        )}
 
         {token ? (
           <li>
-            <button className="logout-btn" onClick={handleLogout}>
+            <button
+              className="logout-btn"
+              onClick={handleLogout}
+            >
               Logout
             </button>
           </li>
         ) : (
           <>
             <li>
-              <NavLink to="/login">Login</NavLink>
+              <NavLink to="/login">
+                Login
+              </NavLink>
             </li>
 
             <li>
-              <NavLink to="/register">Register</NavLink>
+              <NavLink to="/register">
+                Register
+              </NavLink>
             </li>
           </>
         )}
+
       </ul>
     </nav>
   );
 }
-
 export default Navbar;

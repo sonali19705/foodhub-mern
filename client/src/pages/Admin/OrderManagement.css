@@ -1,0 +1,99 @@
+.order-management{
+
+    min-height:100vh;
+
+    background:#111;
+
+    color:white;
+
+    padding:40px 8%;
+}
+
+.order-management h1{
+
+    text-align:center;
+
+    margin-bottom:35px;
+}
+
+.order-card{
+
+    background:#1b1b1b;
+
+    border:1px solid #333;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+}
+
+.order-card h3{
+
+    color:#ff5722;
+
+    margin-bottom:15px;
+}
+
+.order-card p{
+
+    margin:8px 0;
+
+    color:#ddd;
+}
+
+.order-card h4{
+
+    margin-top:20px;
+
+    color:white;
+}
+
+.order-card hr{
+
+    margin:18px 0;
+
+    border-color:#333;
+}
+.status-box{
+
+    margin:15px 0;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.status-box select{
+
+    padding:10px 15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2a2a2a;
+
+    color:white;
+
+    cursor:pointer;
+
+    outline:none;
+}
+
+.status-box select:focus{
+
+    border:1px solid #ff5722;
+}
+
+@media(max-width:768px){
+
+    .order-management{
+
+        padding:25px 5%;
+    }
+
+}

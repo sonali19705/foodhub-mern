@@ -195,8 +195,95 @@ const getOrderById = async (req, res) => {
     }
 
 };
+
+const getAllOrders = async (req, res) => {
+
+    try {
+
+        const orders = await Order.find()
+            .populate("user", "name email")
+            .populate("items.food")
+            .populate("address")
+            .sort({ createdAt: -1 });
+
+        res.status(200).json({
+
+            success: true,
+
+            orders,
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+
+            success: false,
+
+            message: "Server Error",
+
+        });
+
+    }
+
+};
+const updateOrderStatus = async (req, res) => {
+
+    try {
+
+        const { id } = req.params;
+
+        const { orderStatus } = req.body;
+
+        const order = await Order.findById(id);
+
+        if (!order) {
+
+            return res.status(404).json({
+
+                success: false,
+
+                message: "Order not found",
+
+            });
+
+        }
+
+        order.orderStatus = orderStatus;
+
+        await order.save();
+
+        res.status(200).json({
+
+            success: true,
+
+            message: "Order status updated successfully",
+
+            order,
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+
+            success: false,
+
+            message: "Server Error",
+
+        });
+
+    }
+
+};
 module.exports = {
     placeOrder,
     getMyOrders,
     getOrderById,
+    getAllOrders,
+    updateOrderStatus,
 };

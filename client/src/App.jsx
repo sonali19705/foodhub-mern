@@ -12,6 +12,9 @@ import Orders from "./pages/Orders/Orders";
 import Admin from "./pages/Admin/Admin";
 import Address from "./pages/Address/Address";
 import Checkout from "./pages/Checkout/Checkout";
+import FoodManagement from "./pages/Admin/FoodManagement";
+import OrderManagement from "./pages/Admin/OrderManagement";
+import AdminRoute from "./components/AdminRoute/AdminRoute";
 
 function App() {
   return (
@@ -28,7 +31,33 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/address" element={<Address />} />
         <Route path="/checkout" element={<Checkout />} />
-        
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <Admin />
+            </AdminRoute>
+          }
+        />
+
+        <Route
+          path="/admin/foods"
+          element={
+            <AdminRoute>
+              <FoodManagement />
+            </AdminRoute>
+          }
+        />
+
+        <Route
+          path="/admin/orders"
+          element={
+            <AdminRoute>
+              <OrderManagement />
+            </AdminRoute>
+          }
+        />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
 

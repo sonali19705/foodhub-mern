@@ -63,7 +63,9 @@ function Orders() {
                                 Order #{order._id.slice(-6)}
                             </h3>
 
-                            <span className="status">
+                            <span
+                                className={`status ${order.orderStatus.replace(/\s+/g, "-")}`}
+                            >
                                 {order.orderStatus}
                             </span>
 

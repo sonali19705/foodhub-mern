@@ -36,7 +36,11 @@ const createFood = async (req, res) => {
     try {
         const food = await Food.create(req.body);
 
-        res.status(201).json(food);
+        res.status(201).json({
+            success: true,
+            message: "Food added successfully",
+            food,
+        });
 
     } catch (error) {
 
@@ -46,6 +50,8 @@ const createFood = async (req, res) => {
 
     }
 };
+
+
 
 const updateFood = async (req, res) => {
     try {
@@ -65,11 +71,18 @@ const updateFood = async (req, res) => {
             });
         }
 
-        res.status(200).json(food);
+        res.status(200).json({
+            success: true,
+            message: "Food updated successfully",
+            food,
+        });
 
     } catch (error) {
 
+        console.error(error);
+
         res.status(500).json({
+            success: false,
             message: error.message,
         });
 
@@ -77,27 +90,36 @@ const updateFood = async (req, res) => {
 };
 
 const deleteFood = async (req, res) => {
+
     try {
 
         const food = await Food.findByIdAndDelete(req.params.id);
 
         if (!food) {
+
             return res.status(404).json({
+                success: false,
                 message: "Food not found",
             });
+
         }
 
         res.status(200).json({
+            success: true,
             message: "Food deleted successfully",
         });
 
     } catch (error) {
 
+        console.error(error);
+
         res.status(500).json({
+            success: false,
             message: error.message,
         });
 
     }
+
 };
 
 module.exports = {
@@ -108,4 +130,3 @@ module.exports = {
     deleteFood,
 };
 
-   

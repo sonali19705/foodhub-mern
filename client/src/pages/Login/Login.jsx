@@ -44,7 +44,11 @@ const Login = () => {
       alert(response.data.message);
 
       // Redirect to Home
-      navigate("/");
+      if (response.data.user.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
 
     } catch (error) {
       console.log("Full Error:", error);
