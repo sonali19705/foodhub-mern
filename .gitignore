@@ -14,7 +14,7 @@ Thumbs.db
 .vscode/
 
 build/
-
+docs/
 # Microsoft Word temporary files
 ~$*
 *.tmp
