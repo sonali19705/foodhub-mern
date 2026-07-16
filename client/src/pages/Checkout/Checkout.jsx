@@ -8,6 +8,7 @@ function Checkout() {
     const navigate = useNavigate();
     const [addresses, setAddresses] = useState([]);
     const [selectedAddress, setSelectedAddress] = useState("");
+    const [placingOrder, setPlacingOrder] = useState(false);
 
     const subtotal = cart.reduce(
         (total, item) => total + item.food.price * item.quantity,
@@ -78,6 +79,8 @@ function Checkout() {
 
         const token = localStorage.getItem("token");
 
+        setPlacingOrder(true);
+
         try {
 
             const response = await api.post(
@@ -95,6 +98,7 @@ function Checkout() {
             alert(response.data.message);
 
             navigate("/orders");
+
         } catch (error) {
 
             console.error(error);
@@ -103,6 +107,10 @@ function Checkout() {
                 error.response?.data?.message ||
                 "Failed to place order."
             );
+
+        } finally {
+
+            setPlacingOrder(false);
 
         }
 
@@ -274,10 +282,13 @@ function Checkout() {
                     </div>
 
                     <button
-                        className="place-order-btn"
+                        className="checkout-btn"
                         onClick={handlePlaceOrder}
+                        disabled={placingOrder}
                     >
-                        Place Order
+                        {placingOrder
+                            ? "Placing Order..."
+                            : "Place Order"}
                     </button>
 
                 </div>

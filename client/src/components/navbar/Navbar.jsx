@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -17,13 +18,20 @@ function Navbar() {
   };
   return (
     <nav className="navbar">
-      <h2 onClick={() => {
-        if (isAdmin) {
-          navigate("/admin");
-        } else {
-          navigate("/");
-        }
-      }}>🍕 FoodHub</h2>
+      <div
+        className="logo"
+        onClick={() => {
+          if (isAdmin) {
+            navigate("/admin");
+          } else {
+            navigate("/");
+          }
+        }}
+      >
+        <img src={logo} alt="FoodHub Logo" />
+
+        <h2>FoodHub</h2>
+      </div>
 
       <ul className="nav-links">
 
@@ -53,12 +61,9 @@ function Navbar() {
               <NavLink to="/">Home</NavLink>
             </li>
 
-            {/* Uncomment when Menu module is completed */}
-            {/* 
-          <li>
-            <NavLink to="/menu">Menu</NavLink>
-          </li>
-          */}
+            <li>
+              <NavLink to="/menu">Menu</NavLink>
+            </li>
 
             <li>
               <NavLink to="/cart">

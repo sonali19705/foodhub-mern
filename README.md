@@ -2,7 +2,20 @@
 
 FoodHub is a full-stack food ordering web application built using the **MERN Stack (MongoDB, Express.js, React.js, Node.js)**. It allows users to browse food items, securely authenticate using JWT, manage their cart, save delivery addresses, and provides a responsive user experience.
 
-> 🚧 This project is actively being enhanced with Checkout, Order Management, and Admin Dashboard modules.
+> ✅ FoodHub now includes complete Customer and Admin modules with JWT authentication, cart management, address management, checkout, order tracking, food management, and admin dashboard.
+
+---
+## 🌟 Project Highlights
+
+- Full-Stack MERN Application
+- JWT-Based Authentication & Authorization
+- Customer & Admin Modules
+- Dynamic Category Navigation
+- Food CRUD Operations
+- Order Management System
+- Responsive UI
+- RESTful API Architecture
+- MongoDB Atlas Integration
 
 ---
 
@@ -12,51 +25,54 @@ FoodHub is a full-stack food ordering web application built using the **MERN Sta
 - User Registration
 - User Login
 - JWT Authentication
+- Role-Based Authorization
 - Protected Routes
 - Secure Password Hashing (bcrypt)
 
 ### 🍔 Food Module
-- View All Food Items
-- Food Details
-- Dynamic Food Listing from MongoDB
+- Dynamic Food Listing
+- Search Food by Name
+- Filter Foods by Category
+- Responsive Food Cards
+- Add to Cart
 
 ### 🛒 Cart Module
 - Add Items to Cart
-- Update Item Quantity
+- Update Quantity
 - Remove Individual Item
-- Clear Entire Cart
-- Auto Price Calculation
+- Clear Cart
+- Automatic Total Calculation
 
 ### 📍 Address Module
-- Add New Address
+- Add Address
 - View Saved Addresses
 - Update Address
 - Delete Address
-- Default Address Selection
+- Select Delivery Address
 
-### 🧾 Checkout Module
+### 🧾 Checkout & Orders
 - Order Summary
 - Address Selection
-- Price Breakdown
 - Cash on Delivery
+- Place Order
+- Prevent Duplicate Orders
+- View Order History
+- Track Order Status
 
-### 🎨 Frontend
-- Responsive User Interface
-- React Component-Based Architecture
-- Axios API Integration
-- Modern Dark Theme
-
----
-
-## 🚀 Upcoming Features
-
+### 🛠️ Admin Module
 - Admin Dashboard
-- Food Management (Admin)
-- Order Management (Admin)
-- Payment Gateway Integration
-- Delivery Partner Module
+- Dashboard Statistics
+- Food Management (CRUD)
+- Order Management
+- Update Order Status
+- Protected Admin Routes
 
----
+### 🎨 User Experience
+- Responsive Design
+- Dynamic Categories
+- Loading Component
+- Empty State Component
+- Modern Dark Theme
 
 ## 🛠️ Tech Stack
 
@@ -149,13 +165,42 @@ Login
 Browse Foods
      │
      ▼
+Search / Filter Foods
+     │
+     ▼
 Add to Cart
      │
      ▼
 Manage Cart
      │
      ▼
-Manage Address
+Select Address
+     │
+     ▼
+Checkout
+     │
+     ▼
+Place Order
+     │
+     ▼
+Track Orders
+```
+## 🛠️ Admin Flow
+
+```text
+Admin Login
+      │
+      ▼
+Dashboard
+      │
+      ▼
+Manage Foods
+      │
+      ▼
+Manage Orders
+      │
+      ▼
+Update Order Status
 ```
 
 ---
@@ -201,6 +246,17 @@ Manage Address
 | POST | `/api/orders` |
 | GET | `/api/orders` |
 | GET | `/api/orders/:id` |
+
+### Admin
+
+| Method | Endpoint |
+|---------|----------|
+| GET | `/api/admin/dashboard` |
+| GET | `/api/orders/admin` |
+| PATCH | `/api/orders/:id/status` |
+| POST | `/api/foods` |
+| PUT | `/api/foods/:id` |
+| DELETE | `/api/foods/:id` |
 
 ---
 
@@ -260,16 +316,17 @@ npm run dev
 
 ## 📸 Screenshots
 
-> Screenshots will be added soon.
-
-- Home
-- Login
-- Register
-- Cart
-- Address
-- Checkout
-- Orders
+- Home Page
+- Menu Page
+- Login Page
+- Register Page
+- Cart Page
+- Address Management
+- Checkout Page
+- Orders Page
 - Admin Dashboard
+- Food Management
+- Order Management
 
 ---
 
@@ -287,19 +344,25 @@ Through this project, I gained practical experience in:
 - API Integration using Axios
 - Git & GitHub Workflow
 - Responsive Web Design
+- Role-Based Authentication
+- Admin Dashboard Development
+- CRUD Operations with MongoDB
+- State Management using React Hooks
+- RESTful API Design
+- Secure Route Protection
 
 ---
 
 ## 🔮 Future Enhancements
 
-- Payment Gateway Integration
+- Online Payment Gateway (Stripe/Razorpay)
 - Delivery Partner Module
 - Category Management
-- Search & Filters
-- Reviews & Ratings
+- Product Reviews & Ratings
 - Wishlist
 - Email Notifications
-- Order Tracking
+- Real-Time Order Tracking
+- Image Upload using Cloudinary
 
 ---
 
